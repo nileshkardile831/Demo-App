@@ -73,8 +73,10 @@ spec:
       serviceAccountName: bookinfo-details
       containers:
       - name: details
-        image: nileshkardile831/istio:bookinfo-details-v1
-        imagePullPolicy: IfNotPresent
+        image: demoapp2020/details
+        imagePullPolicy: Always
+        secret:
+          secretName: book-info-secret
         ports:
         - containerPort: 9080
 ---
@@ -124,8 +126,10 @@ spec:
       serviceAccountName: bookinfo-ratings
       containers:
       - name: ratings
-        image: nileshkardile831/istio:bookinfo-ratings-v1
-        imagePullPolicy: IfNotPresent
+        image: demoapp2020/ratings
+        imagePullPolicy: Alawys
+        secret:
+          secretName: book-info-secret
         ports:
         - containerPort: 9080
 ---
@@ -175,8 +179,10 @@ spec:
       serviceAccountName: bookinfo-reviews
       containers:
       - name: reviews
-        image: nileshkardile831/istio:bookinfo-reviews-v1
-        imagePullPolicy: IfNotPresent
+        image: demoapp2020/reviews
+        imagePullPolicy: Always
+        secret:
+          secretName: book-info-secret
         env:
         - name: LOG_DIR
           value: "/tmp/logs"
@@ -239,8 +245,10 @@ spec:
       serviceAccountName: bookinfo-productpage
       containers:
       - name: productpage
-        image: nileshkardile831/istio:bookinfo-productpage-v1
-        imagePullPolicy: IfNotPresent
+        image: demoapp2020/productpage
+        imagePullPolicy: Always
+        secret:
+          secretName: book-info-secret
         ports:
         - containerPort: 9080
         volumeMounts:
